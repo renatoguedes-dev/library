@@ -347,7 +347,7 @@ button.remove-btn {
   color: hsl(0, 0%, 30%);
 }
 
-input {
+#fields input {
   font-family: 'Tiro Devanagari Sanskrit', serif;
   margin-bottom: 1.5rem;
   border-radius: .3em;
