@@ -44,8 +44,8 @@ function displayBooks() {
       <p>Language: English</p>
       <p>Genre: Fantasy</p>
       <div class="mark-read">
-        <label for="genre">Have you read this book?</label>
-        <input type="checkbox" name="genre" id="genre" required>
+        <label for="checkbox">Have you read this book?</label>
+        <input type="checkbox" name="checkbox" id="checkbox" required>
       </div>
       <div class="interaction-symbols">
         <a href="#"><img src="./assets/star-plus-outline.png" alt="add to favorite icon"></a> 

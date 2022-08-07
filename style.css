@@ -365,14 +365,15 @@ input:focus {
 
 .mark-read {
   display: grid;
-  grid-template-columns: 1fr 40px;
+  grid-template-columns: 1fr 50px;
   align-items: center;
   margin: .5rem 0 2rem;
 }
 
-.mark-read input {
+.mark-read input#checkbox {
   width: auto;
   margin: 0;
+  height: 2rem;
 }
 
 /* MODAL */
