@@ -86,8 +86,6 @@ function displayBooks() {
   }
 }
 
-displayBooks();
-
 
 // variables for capturing the buttons
 const newBookButton = document.querySelectorAll('[data-modal-target]');
@@ -165,9 +163,11 @@ const addNewBook = (e) => {
   closeModal(modal);
   removeAllChildNodes(myBooks);
   displayBooks();
+
+  localStorage.setItem('MyBookList', JSON.stringify(myLibrary));
 }
 
 addBookModalBtn.addEventListener('click', addNewBook)
 
 
-
+displayBooks();
