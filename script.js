@@ -1,5 +1,12 @@
 let myLibrary = [];
 
+// variables for capturing the buttons
+const newBookButton = document.querySelectorAll('[data-modal-target]');
+const closeModalButtons = document.querySelectorAll('[data-close-button]');
+const addBookModalBtn = document.querySelector('#add-book-btn')
+const overlay = document.getElementById('overlay');
+const removeBookFromDisplay = document.querySelectorAll('.remove-btn');
+
 class Book {
   constructor(title, author, pages, language, genre, read) {
     this.title = title;
@@ -31,11 +38,16 @@ addBookToLibrary(harryPotter);
 function displayBooks() {
   let myBooks = document.querySelectorAll('#my-books')[0];
   
+  if (storedInput) {
+    myLibrary = storedInput;    
+  }
+
   for (let i = 0; i < myLibrary.length; i++) {
     let cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
     let cardDivContent;
-    
+   
+
     if (myLibrary[i].read == true) {
       cardDivContent = `
       <div id="title-card">
@@ -83,16 +95,12 @@ function displayBooks() {
   
     cardDiv.innerHTML = cardDivContent;
     myBooks.append(cardDiv);
+
+    const removeBookFromDisplay = document.querySelectorAll('.remove-btn');
+    removeBookFromDisplay.forEach(button => button.addEventListener('click', removeBooks));
+    updateLocalStorage();
   }
 }
-
-
-// variables for capturing the buttons
-const newBookButton = document.querySelectorAll('[data-modal-target]');
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const addBookModalBtn = document.querySelector('#add-book-btn')
-const overlay = document.getElementById('overlay');
-const removeBookFromDisplay = document.querySelectorAll('.remove-btn');
 
 
 // buttons being used with their respective events
@@ -134,7 +142,9 @@ removeBookFromDisplay.forEach(button => button.addEventListener('click', removeB
 
 function removeBooks(event) {
   let removeBook = event.target;
+  updateMyLibrary(event);
   removeBook.parentElement.parentElement.remove();
+  updateLocalStorage();  
 }
 
 function removeAllChildNodes(parent) {
@@ -158,16 +168,40 @@ const addNewBook = (e) => {
   let bookAdded = new Book(title, author, nrOfPages, language, genre, readBook);
 
   addBookToLibrary(bookAdded);
- 
+  storedInput = myLibrary
   document.forms[0].reset();
   closeModal(modal);
   removeAllChildNodes(myBooks);
   displayBooks();
 
-  localStorage.setItem('MyBookList', JSON.stringify(myLibrary));
+  saveToLocalStorage();
+
+}
+
+let storedInput = JSON.parse(localStorage.getItem('myBookList'));
+
+function saveToLocalStorage() {
+  return localStorage.setItem('myBookList', JSON.stringify(myLibrary));
+}
+
+function updateLocalStorage() {
+  saveToLocalStorage();
+  return storedInput = JSON.parse(localStorage.getItem('myBookList'));
 }
 
 addBookModalBtn.addEventListener('click', addNewBook)
 
+function updateMyLibrary(event) {  
+  let bookSelected = event.path[1].children[0];
+  let bookShelf = event.path[3].children;
+
+  for (let i = 0; i < bookShelf.length; i++) {
+    if (myLibrary[i].title == bookSelected.innerText) {
+      let value = bookSelected.innerText;
+      myLibrary = myLibrary.filter(item => item.title !== value);
+      return myLibrary;
+    }
+  } 
+}
 
 displayBooks();
