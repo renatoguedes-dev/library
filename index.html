@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+    <title>Library</title>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="header">
+        <div class="upper-header">
+          <div class="left-upper">
+            <img src="./assets/magnify.png" alt="search symbol">
+            <input type="search" name="search-bar" id="search-bar">
+          </div>
+          <div class="right-upper">
+            <img src="./assets/bell-ring-outline.png" alt="notification icon">
+            <img class="profile-picture small" src="./assets/profile-avatar.png" alt="user picture">
+            <div class="user-name">Morgan Oakley</div>
+          </div>
+        </div>
+
+        <div class="lower-header">
+          <div class="left-lower">
+            <img class="profile-picture big" src="./assets/profile-avatar.png" alt="user picture">
+            <div class="user-greeting">
+              <p>Hi there,</p>
+              <div class="user-name user-tag">Morgan Oakley (@morgan)</div>
+            </div>
+          </div>
+          <div class="right-lower">
+            <button data-modal-target="#modal" class="btn new-book-btn">+ New Book</button>
+          </div>
+
+          <div class="modal" id="modal">
+            <div id="close-btn">
+              <button data-close-button class="close-btn">&times;</button>
+            </div>
+            
+            <form>
+              <div class="fields-modal" id="fields">
+
+                <div class="title-modal">
+                  <label for="title">Book's Title *</label>
+                </div>
+                <input type="text" name="title" 
+                id="title" minlength="1" maxlength="30" required>
+          
+                <div class="author-modal">
+                  <label for="author">Author *</label>
+                </div>
+                <input type="text" name="author" id="author" required>
+        
+                <div class="pages-modal">
+                  <label for="pages">Number of pages *</label>
+                </div>
+                <input type="number" name="pages" id="pages" required>
+
+                <div class="language-modal">
+                  <label for="language">Language *</label>
+                </div>
+                <input type="text" name="language" id="language" required>
+        
+                <div class="genre-modal">
+                  <label for="genre">Genre *</label>
+                </div>
+                <input type="text" name="genre" id="genre" required>
+                
+                <div class="genre-modal mark-read">
+                  <label for="genre">Have you read this book?</label>
+                  <input type="checkbox" name="checkbox" id="checkbox">
+                </div>
+                
+                <div class="add-book-modal">
+                  <button class="btn add-book-btn" id="add-book-btn">Add Book</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+          <div id="overlay"></div>
+
+        </div>
+      </div>
+
+      <div class="sidebar">
+
+        <div class="dashboard-title">
+          <img src="./assets/view-dashboard.png" alt="dashboard symbol">
+          <p>Cool Library</p>
+        </div>
+
+        <div class="sections">
+          <div class="nav-symbols line-grid">
+            <img src="./assets/home-symbol.png" alt="home symbol">
+            <img src="./assets/profile-card.png" alt="profile symbol">
+            <img src="./assets/message-reply.png" alt="messages symbol">
+            <img src="./assets/clock-time-three.png" alt="history symbol">
+            <img src="./assets/note-multiple.png" alt="tasks symbol">
+            <img src="./assets/account-group.png" alt="community symbol">
+          </div>
+  
+          <div class="nav-section line-grid">
+            <div><a href="#">Home</a></div>
+            <div><a href="#">Profile</a></div>
+            <div><a href="#">Messages</a></div>
+            <div><a href="#">History</a></div>
+            <div><a href="#">Tasks</a></div>
+            <div><a href="#">Communities</a></div>
+          </div>
+        </div>
+
+        <div class="settings">
+          <div class="settings-symbols line-grid">
+            <img src="./assets/cog.png" alt="settings symbol">
+            <img src="./assets/help-box.png" alt="support symbol">
+            <img src="./assets/shield-check.png" alt="privacy symbol">
+          </div>
+
+          <div class="settings-section line-grid">
+            <div><a href="#">Settings</a></div>
+            <div><a href="#">Support</a></div>
+            <div><a href="#">Privacy</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content">
+
+        <div class="content-header-one title">
+          <p>Your Book Shelf</p>
+        </div>
+        <div class="content-header-two title">
+          <p>Trending Books</p>
+        </div>
+        <div id="my-books" class="projects">
+          
+        </div>
+
+        <div class="announcements">
+          
+          <div class="announcements-blocks">
+            <div class="announcement-card">
+              <h4>"Reminders of Him" by Colleen Hoover</h4>
+              <p>In Colleen Hoover's latest fan-favorite novel, Kenna Rowan is 
+                looking to prove herself so she can reunite with her four-year-old 
+                daughter, having just been released from her five-year prison 
+                sentence. Shut out by nearly everyone in her and her daughter's 
+                life, Kenna connects with Ledger Ward, a local bar owner, but as 
+                the romance between the two grows, Kenna risks everything to absolve 
+                her past and create a new future. You can find more of 
+                <a href="https://www.businessinsider.com/guides/learning/best-colleen-hoover-books">Colleen 
+                  Hoover's most popular books here.</a></p>
+            </div>
+            <div class="announcement-card central">
+              <h4>"The Maid" by Nita Prose</h4>
+              <p>"The Maid" is about Molly Gray, a 25-year-old hotel maid who is 
+                left struggling to fend for herself socially after her grandmother's 
+                passing. When Molly discovers Charles Black dead in a terribly 
+                ravished hotel room, the police immediately target her as a lead 
+                suspect until her friends step in to prove her innocence in this 
+                exciting thriller that's described as a "Clue"-like, locked-room 
+                mystery.</p>
+            </div>
+            <div class="announcement-card">
+              <h4>"Book Lovers" by Emily Henry</h4>
+              <p>Emily Henry's <a href="https://affiliate.insider.com/?u=https%3A%2F%2Fwww.amazon.com%2FBeach-Read-Emily-Henry%2Fdp%2F1984806734%2Fref%3Dsr_1_1%3Fcrid%3D1VP4S8VK85PC2%26keywords%3Dbeach%2Bread%26qid%3D1651508505%26sprefix%3Dbeach%2Bread%252Caps%252C115%26sr%3D8-1&amazonTrackingID=biauto-54803-20&site=bi&vikingID=627a7617884de6136f000ab5&platform=browser&sc=false&disabled=false&sessionID=1659751140432kida2dv9">"Beach Read"</a>
+                and <a href="https://affiliate.insider.com/?u=https%3A%2F%2Fwww.amazon.com%2FPeople-Meet-Vacation-Emily-Henry%2Fdp%2F1984806750%2Fref%3Dsr_1_8%3Fcrid%3D1VP4S8VK85PC2%26keywords%3Dbeach%2Bread%26qid%3D1651508505%26sprefix%3Dbeach%2Bread%252Caps%252C115%26sr%3D8-8&amazonTrackingID=biauto-54803-20&site=bi&vikingID=627a7617884de6136f000ab5&platform=browser&sc=false&disabled=false&sessionID=1659751140432kida2dv9">"People We Meet on Vacation"</a>
+                have already captured countless readers' hearts, so it's no surprise 
+                her latest release has already done the same. "Book Lovers" stars 
+                Nora Stephens, a literary agent whose love life is anything but 
+                a romance novel. When Nora's sister plans a trip for the two of 
+                them to a picture-perfect little town with a list of "to-do"s to 
+                live out the plot of a romance novel all their own, Nora finds 
+                herself not with a storybook prince, but a brooding editor from 
+                the city with whom she's had plenty of terrible run-ins in the past. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
