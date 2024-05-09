@@ -210,17 +210,10 @@ img.profile-picture.small {
 
 .projects {
   grid-area: p;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2rem;
-  overflow: visible; */
-
   display: flex;
   flex-wrap: wrap;
   align-self: flex-start;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 2rem;
 
 }
